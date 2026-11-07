@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Daftar Menu Kafe</h1>
+<ul>
+    {% for id, item in menu.items() %}
+    <li><a href="{{ url_for('detail_produk', id=id) }}">{{ item.nama }}</a> - Rp{{ "{:,}".format(item.harga) }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

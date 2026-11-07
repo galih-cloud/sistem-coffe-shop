@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistem Coffee Shop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('beranda') }}">Beranda</a>
+        <a href="{{ url_for('produk') }}">Menu</a>
+        <a href="{{ url_for('tentang') }}">Tentang</a>
+        <a href="{{ url_for('kontak') }}">Kontak</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+```

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ produk.nama }}</h2>
+<p>Kategori: {{ produk.kategori }}</p>
+<p>Harga: Rp{{ "{:,}".format(produk.harga) }}</p>
+<p><a href="{{ url_for('produk') }}">&larr; Kembali ke Menu</a></p>
+{% endblock %}
