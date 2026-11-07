@@ -1,27 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row justify-content-center">
-  <div class="col-md-6">
-    <h3 class="mb-3">Verifikasi Barista / Staff</h3>
-    <p class="text-muted">Username yang dicek: <strong>{{ username }}</strong></p>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card card-custom shadow-sm bg-white p-4">
+                <div class="card-body">
+                    <h3 class="fw-bold mb-3 text-dark">Verifikasi Barista / Staff</h3>
+                    <p class="text-muted mb-4">Username yang dicek: <strong class="text-dark">{{ username }}</strong></p>
 
-    {% if not valid %}
-      <div class="alert alert-warning">
-        ⚠️ <strong>Peringatan:</strong> Nama minimal harus 4 karakter!
-      </div>
-    {% elif tersedia %}
-      <div class="alert alert-success">
-        ✅ <strong>{{ username | upper }}</strong> tersedia dan dapat didaftarkan sebagai staff aktif.
-      </div>
-    {% else %}
-      <div class="alert alert-danger">
-        ❌ <strong>{{ username | upper }}</strong> sudah dipakai atau terdaftar dalam sistem!
-      </div>
-    {% endif %}
+                    <!-- Logika Pengecekan Jinja2 -->
+                    {% if not valid %}
+                      <div class="alert alert-warning d-flex align-items-center mb-4" role="alert">
+                          <div>
+                              <i class="fa-solid fa-triangle-exclamation me-2"></i> <strong>Peringatan:</strong> Nama minimal harus 4 karakter!
+                          </div>
+                      </div>
+                    {% elif tersedia %}
+                      <div class="alert alert-success d-flex align-items-center mb-4" role="alert">
+                          <div>
+                              <i class="fa-solid fa-circle-check me-2"></i> <strong>{{ username | upper }}</strong> tersedia dan dapat didaftarkan sebagai staff aktif.
+                          </div>
+                      </div>
+                    {% else %}
+                      <div class="alert alert-danger d-flex align-items-center mb-4" role="alert">
+                          <div>
+                              <i class="fa-solid fa-circle-xmark me-2"></i> <strong>{{ username | upper }}</strong> sudah dipakai atau terdaftar dalam sistem!
+                          </div>
+                      </div>
+                    {% endif %}
 
-    <div class="mt-3">
-        <a href="{{ url_for('beranda') }}" class="btn btn-secondary">Kembali ke Beranda</a>
+                    <a href="{{ url_for('beranda') }}" class="btn btn-dark w-100 rounded-pill py-2">
+                        <i class="fa-solid fa-arrow-left me-2"></i>Kembali ke Beranda
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 {% endblock %}

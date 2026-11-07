@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>404 - Halaman Tidak Ditemukan</h1>
-<p>Maaf, halaman atau menu yang kamu cari tidak tersedia.</p>
-<p><a href="{{ url_for('beranda') }}">Kembali ke Beranda</a></p>
+<div class="container my-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card card-custom shadow-lg bg-white p-5">
+                <div class="card-body">
+                    <div class="display-1 text-coffee fw-bold mb-3">
+                        <i class="fa-solid fa-mug-hot opacity-50"></i> 404
+                    </div>
+                    <h2 class="fw-bold mb-3">Oops! Kopi Tumpah, Halaman Tidak Ditemukan</h2>
+                    <p class="text-muted mb-4">
+                        Sepertinya halaman yang kamu tuju sudah habis atau jalurnya salah. Yuk, balik ke meja utama biar nggak tersesat!
+                    </p>
+                    <a href="{{ url_for('beranda') }}" class="btn btn-coffee rounded-pill px-4 py-2 shadow-sm">
+                        <i class="fa-solid fa-house me-2"></i>Kembali ke Beranda
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
