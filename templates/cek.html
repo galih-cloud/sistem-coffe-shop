@@ -1,5 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Pengecekan Barista</h1>
-<p>Username <b>{{ username }}</b> {{ status }}.</p>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h3 class="mb-3">Verifikasi Barista / Staff</h3>
+    <p class="text-muted">Username yang dicek: <strong>{{ username }}</strong></p>
+
+    {% if not valid %}
+      <div class="alert alert-warning">
+        ⚠️ <strong>Peringatan:</strong> Nama minimal harus 4 karakter!
+      </div>
+    {% elif tersedia %}
+      <div class="alert alert-success">
+        ✅ <strong>{{ username | upper }}</strong> tersedia dan dapat didaftarkan sebagai staff aktif.
+      </div>
+    {% else %}
+      <div class="alert alert-danger">
+        ❌ <strong>{{ username | upper }}</strong> sudah dipakai atau terdaftar dalam sistem!
+      </div>
+    {% endif %}
+
+    <div class="mt-3">
+        <a href="{{ url_for('beranda') }}" class="btn btn-secondary">Kembali ke Beranda</a>
+    </div>
+  </div>
+</div>
 {% endblock %}
